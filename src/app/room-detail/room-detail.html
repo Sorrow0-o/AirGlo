@@ -109,6 +109,12 @@
           <span class="rd-res-name">{{ room.name }}</span>
           <span class="rd-res-amount">${{ room.price }}<em>/ night</em></span>
         </div>
+        <div class="rd-price-summary" *ngIf="nights > 0">
+          <span class="rd-price-calc"
+            >${{ room.price }} × {{ nights }} night{{ nights !== 1 ? 's' : '' }}</span
+          >
+          <span class="rd-price-total">${{ totalPrice }}</span>
+        </div>
       </div>
 
       <div class="rd-booking-success" *ngIf="bookingStatus === 'success'">

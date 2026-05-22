@@ -354,6 +354,29 @@ nav:not(.footer-links) {
   }
 }
 
+.rd-price-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.85rem;
+  padding: 0.75rem 1rem;
+  background: #faf8f3;
+  border-radius: 8px;
+  border: 1px solid #e8e4dc;
+
+  .rd-price-calc {
+    font-size: 0.82rem;
+    color: $muted;
+  }
+
+  .rd-price-total {
+    font-family: $serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $teal;
+  }
+}
+
 .rd-booking-success {
   display: flex;
   align-items: center;

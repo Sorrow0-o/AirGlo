@@ -5,12 +5,35 @@
     <title>AirGlo — Luxury Collection</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <app-root></app-root>
+
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+      createChat({
+        webhookUrl:
+          'https://pathetic.app.n8n.cloud/webhook/43a0618d-ff2c-49b2-a9f4-727e32526623/chat',
+        initialMessages: ['გამარჯობა! 👋'],
+        i18n: {
+          en: {
+            title: 'Chat with AirGlo',
+            subtitle: 'ახალი საუბრის დაწყება',
+            footer: '',
+            getStarted: 'ახალი საუბარი',
+            inputPlaceholder: 'მომწერე შეკითხვა',
+          },
+        },
+      });
+    </script>
   </body>
 </html>

@@ -149,6 +149,12 @@ export class Register implements OnInit {
     localStorage.setItem('profileFirstName', fn);
     localStorage.setItem('profileLastName', ln);
     localStorage.setItem('profileEmail', em);
+    // Also save under per-account keys so switching accounts restores correct data
+    const currentEmail = this.profileEmail || em;
+    localStorage.setItem('profile_' + currentEmail + '_firstName', fn);
+    localStorage.setItem('profile_' + currentEmail + '_lastName', ln);
+    localStorage.setItem('profile_' + em + '_firstName', fn);
+    localStorage.setItem('profile_' + em + '_lastName', ln);
     this.profileFirstName = fn;
     this.profileLastName = ln;
     this.profileEmail = em;
@@ -173,6 +179,7 @@ export class Register implements OnInit {
       const base64 = reader.result as string;
       this.profileAvatar = base64;
       localStorage.setItem('profileAvatar', base64);
+      localStorage.setItem('profile_' + this.profileEmail + '_avatar', base64);
       this.showToast('Avatar updated!');
     };
     reader.readAsDataURL(file);
@@ -181,6 +188,7 @@ export class Register implements OnInit {
   removeAvatar() {
     this.profileAvatar = '';
     localStorage.removeItem('profileAvatar');
+    localStorage.removeItem('profile_' + this.profileEmail + '_avatar');
     this.showToast('Avatar removed.');
   }
 
@@ -296,6 +304,8 @@ export class Register implements OnInit {
       localStorage.setItem('profileFirstName', firstName);
       localStorage.setItem('profileLastName', lastName);
       localStorage.setItem('profileEmail', email);
+      localStorage.setItem('profile_' + email + '_firstName', firstName);
+      localStorage.setItem('profile_' + email + '_lastName', lastName);
       this.pendingVerifyEmail = email;
       this.pendingPassword = this.form.value.password ?? '';
       this.form.reset();
@@ -344,18 +354,15 @@ export class Register implements OnInit {
         localStorage.setItem('accessToken', token);
         localStorage.setItem('isRegistered', 'true');
         const loginEmail = this.loginForm.value.loginEmail?.trim() ?? '';
-        const storedEmail = localStorage.getItem('profileEmail') ?? '';
-
-        if (storedEmail !== loginEmail) {
-          localStorage.removeItem('profileFirstName');
-          localStorage.removeItem('profileLastName');
-          localStorage.removeItem('profileAvatar');
-          localStorage.setItem('profileEmail', loginEmail);
-        }
-
-        if (!storedEmail) {
-          localStorage.setItem('profileEmail', loginEmail);
-        }
+        // Store which account is active
+        localStorage.setItem('profileEmail', loginEmail);
+        // Load this account's saved name/avatar from their own keys
+        const savedFirst = localStorage.getItem('profile_' + loginEmail + '_firstName') ?? '';
+        const savedLast = localStorage.getItem('profile_' + loginEmail + '_lastName') ?? '';
+        const savedAvatar = localStorage.getItem('profile_' + loginEmail + '_avatar') ?? '';
+        localStorage.setItem('profileFirstName', savedFirst);
+        localStorage.setItem('profileLastName', savedLast);
+        localStorage.setItem('profileAvatar', savedAvatar);
       }
 
       this.loginForm.reset();
@@ -426,12 +433,28 @@ export class Register implements OnInit {
       if (token) {
         localStorage.setItem('accessToken', token);
         localStorage.setItem('isRegistered', 'true');
+        // Restore this account's per-email profile data
+        const ae = email;
+        const savedFirst =
+          localStorage.getItem('profile_' + ae + '_firstName') ??
+          localStorage.getItem('profileFirstName') ??
+          '';
+        const savedLast =
+          localStorage.getItem('profile_' + ae + '_lastName') ??
+          localStorage.getItem('profileLastName') ??
+          '';
+        const savedAvatar = localStorage.getItem('profile_' + ae + '_avatar') ?? '';
+        localStorage.setItem('profileFirstName', savedFirst);
+        localStorage.setItem('profileLastName', savedLast);
+        localStorage.setItem('profileAvatar', savedAvatar);
+        localStorage.setItem('profileEmail', ae);
       }
 
       this.pendingPassword = '';
       this.checkLoginState();
       this.showToast('Welcome to AirGlo!');
     } catch {
+      // fallback to manual login
       this.pendingPassword = '';
       this.setTab('login');
     }

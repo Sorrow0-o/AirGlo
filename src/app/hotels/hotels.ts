@@ -44,27 +44,6 @@ export class Hotels implements OnInit {
       image:
         'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&auto=format&fit=crop',
     },
-    {
-      id: 4,
-      name: 'Sheraton Grand Tbilisi Metechi',
-      cityName: 'Tbilisi',
-      image:
-        'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600&auto=format&fit=crop',
-    },
-    {
-      id: 5,
-      name: 'Rooms Hotel Tbilisi',
-      cityName: 'Tbilisi',
-      image:
-        'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&auto=format&fit=crop',
-    },
-    {
-      id: 6,
-      name: 'Hotel Stamba',
-      cityName: 'Tbilisi',
-      image:
-        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&auto=format&fit=crop',
-    },
   ];
 
   fallbackCities = ['Tbilisi'];

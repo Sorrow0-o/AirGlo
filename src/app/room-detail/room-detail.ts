@@ -73,6 +73,16 @@ export class RoomDetail implements OnInit {
   bookingStatus: 'idle' | 'loading' | 'success' | 'error' = 'idle';
   bookingMessage = '';
 
+  get nights(): number {
+    if (!this.checkIn || !this.checkOut) return 0;
+    const ms = new Date(this.checkOut).getTime() - new Date(this.checkIn).getTime();
+    return Math.max(0, Math.floor(ms / 86_400_000));
+  }
+
+  get totalPrice(): number {
+    return this.nights * (this.room?.price ?? 0);
+  }
+
   activeTab: 'overview' | 'facilities' | 'extra' = 'overview';
 
   @HostListener('window:scroll')
