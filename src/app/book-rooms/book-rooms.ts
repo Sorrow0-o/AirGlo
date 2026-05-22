@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Footer } from '../footer/footer';
 
 const BOOKING_API = 'https://hotelbooking.stepprojects.ge/api/Booking';
 const HOTELS_API = 'https://hotelbooking.stepprojects.ge/api/Hotels/GetAll';
@@ -16,7 +17,7 @@ const ROOMS_API = 'https://hotelbooking.stepprojects.ge/api/Rooms/GetRoom';
 @Component({
   selector: 'app-book-rooms',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink, FormsModule, Footer],
   templateUrl: './book-rooms.html',
   styleUrl: './book-rooms.scss',
   encapsulation: ViewEncapsulation.None,

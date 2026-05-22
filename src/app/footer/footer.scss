@@ -1,0 +1,97 @@
+$gold: #c9a96e;
+$dark: #0d0d0d;
+$cream: #faf8f3;
+$serif: 'Playfair Display', Georgia, serif;
+
+.footer-support {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.footer-support-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.footer-feedback {
+  color: #e7e4dd;
+  border-color: #f3f2f2fb;
+
+  &:hover {
+    background: rgba(231, 229, 225, 0.12);
+    border-color: #c9a96e;
+  }
+}
+
+.footer-telegram {
+  color: #e5eaec;
+  border-color: lch(91.47% 1.48 244.45);
+
+  &:hover {
+    background: rgba(231, 233, 235, 0.12);
+    border-color: #48ade5;
+  }
+}
+
+footer {
+  background: $dark;
+  padding: 3.5rem 3rem;
+  text-align: center;
+  border-top: 1px solid rgba($gold, 0.12);
+}
+.footer-logo {
+  font-family: $serif;
+  font-size: 1.8rem;
+  color: $cream;
+  margin-bottom: 0.4rem;
+  span {
+    color: $gold;
+  }
+}
+.footer-tagline {
+  font-size: 0.82rem;
+  color: rgba($cream, 0.35);
+  margin-bottom: 1.5rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  a {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba($cream, 0.75);
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: none;
+    &:hover {
+      color: $gold;
+    }
+  }
+}
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba($cream, 0.3);
+}
+
+@media (max-width: 1070px) {
+  footer {
+    padding: 2.5rem 1.5rem;
+  }
+  .footer-links {
+    gap: 1.5rem;
+  }
+}

@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Footer } from '../footer/footer';
 
 const BASE_URL = 'https://hotelbooking.stepprojects.ge/api/Rooms/GetRoom';
 const TYPES_URL = 'https://hotelbooking.stepprojects.ge/api/Rooms/GetRoomTypes';
@@ -20,7 +21,7 @@ type RoomTypeMap = Record<number, string>;
 
 @Component({
   selector: 'app-rooms',
-  imports: [CommonModule, RouterLink, HttpClientModule, FormsModule],
+  imports: [CommonModule, RouterLink, HttpClientModule, FormsModule, Footer],
   templateUrl: './rooms.html',
   styleUrl: './rooms.scss',
   encapsulation: ViewEncapsulation.None,

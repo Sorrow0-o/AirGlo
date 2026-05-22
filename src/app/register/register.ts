@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { Footer } from '../footer/footer';
 
 const RESTAURANT_API_KEY = '978a628d-2cd0-455c-acbe-161f048b3977';
 const AUTH_REGISTER_API =
@@ -25,7 +26,7 @@ const AUTH_FORGOT_PASSWORD_API = (email: string) =>
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, Footer],
   templateUrl: './register.html',
   styleUrl: './register.scss',
   encapsulation: ViewEncapsulation.None,

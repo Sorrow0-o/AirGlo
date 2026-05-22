@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Footer } from '../footer/footer';
 
 const BASE_URL = 'https://hotelbooking.stepprojects.ge/api/Rooms/GetRoom';
 const BOOKING_URL = 'https://hotelbooking.stepprojects.ge/api/Booking';
@@ -51,7 +52,7 @@ const EXTRA_IMAGES = [
 
 @Component({
   selector: 'app-room-detail',
-  imports: [CommonModule, RouterLink, HttpClientModule, FormsModule],
+  imports: [CommonModule, RouterLink, HttpClientModule, FormsModule, Footer],
   templateUrl: './room-detail.html',
   styleUrl: './room-detail.scss',
   encapsulation: ViewEncapsulation.None,

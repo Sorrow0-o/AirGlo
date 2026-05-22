@@ -442,54 +442,6 @@ $sans: 'DM Sans', sans-serif;
   }
 }
 
-footer {
-  background: $dark;
-  padding: 3.5rem 3rem;
-  text-align: center;
-  border-top: 1px solid rgba($gold, 0.12);
-}
-
-.footer-logo {
-  font-family: $serif;
-  font-size: 1.8rem;
-  color: $cream;
-  margin-bottom: 0.4rem;
-  span {
-    color: $gold;
-  }
-}
-
-.footer-tagline {
-  font-size: 0.82rem;
-  color: rgba($cream, 0.35);
-  margin-bottom: 1.5rem;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-
-  a {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba($cream, 0.4);
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.2s;
-    &:hover {
-      color: $gold;
-    }
-  }
-}
-
-.footer-copy {
-  font-size: 0.78rem;
-  color: rgba($cream, 0.3);
-}
 
 @keyframes spin {
   to {

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
+import { Footer } from '../footer/footer';
 
 const HOTEL_API_BASE = 'https://hotelbooking.stepprojects.ge/api';
 
@@ -21,7 +22,7 @@ const ROOM_IMAGES = [
 
 @Component({
   selector: 'app-hotel-rooms',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, Footer],
   templateUrl: './hotel-rooms.html',
   styleUrl: './hotel-rooms.scss',
   encapsulation: ViewEncapsulation.None,

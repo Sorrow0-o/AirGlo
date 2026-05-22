@@ -7,10 +7,11 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-hotel-services',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, Footer],
   templateUrl: './hotel-services.html',
   styleUrl: './hotel-services.scss',
   encapsulation: ViewEncapsulation.None,

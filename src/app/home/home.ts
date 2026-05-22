@@ -8,13 +8,15 @@ import {
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Footer } from '../footer/footer';
+
 
 const BASE_URL = 'https://hotelbooking.stepprojects.ge/api/Rooms/GetRoom';
 const ROOM_IDS = [1, 2, 3, 4, 5, 6, 7, 8];
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterLink, HttpClientModule],
+  imports: [CommonModule, RouterLink, HttpClientModule,Footer],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   encapsulation: ViewEncapsulation.None,

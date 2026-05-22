@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { Footer } from '../footer/footer';
 
 interface Review {
   id: string;
@@ -92,7 +93,7 @@ const MOCK_REVIEWS: Review[] = [
 
 @Component({
   selector: 'app-reviews',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, Footer],
   templateUrl: './reviews.html',
   styleUrl: './reviews.scss',
   encapsulation: ViewEncapsulation.None,
